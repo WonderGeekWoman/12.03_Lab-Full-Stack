@@ -11,6 +11,13 @@ block content
         span Completed
       else
         span Not Completed
+      form(method='POST' action='/update')
+        input(type='hidden', name='id', value=val.id)
+        input(type='text', name='task', value=val.task, required)
+        button(type='submit') Update
+      form(method='POST' action='/complete')
+        input(type='hidden', name='id', value=val.id)
+        button(type='submit') Complete
       form(method='POST' action='/delete')
         input(type='hidden', name='id', value=val.id)
         button(type='submit') Delete

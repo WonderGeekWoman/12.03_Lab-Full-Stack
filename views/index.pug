@@ -3,15 +3,14 @@ extends layout
 block content
   #todo-box
   h1= title
-  h2 Keep track of the tasks you need to complete!
+  h2 Keep track of your tasks!
 
   hr
-  p Add a new task
   form(method='POST' action='/create')
     input(type='text', name='task', id='task', onchange="this.value = this.value.trim()", required, autofocus)
     button(type='submit') Create Task
 
-  h2 Tasks
+  h3 Tasks to be done
   ol
   each val in todos
     if val.completed == 0
@@ -25,26 +24,34 @@ block content
             input(type='hidden', name='id', value=val.id)
             button.delete-btn(type='submit') &#10006;
         .task-actions
-          form(method='POST' action='/update')
+          button.edit-toggle-btn(type='button', onclick='showEdit(this)') Edit
+          form.edit-form.hidden(method='POST' action='/update')
             input(type='hidden', name='id', value=val.id)
             input(type='text', name='task', value=val.task, required)
-            button(type='submit') Edit
+            button(type='submit') Save
           
 
-  h2.completed-heading Completed
+  h3.completed-heading Completed Tasks
   ol
   each val in todos.slice().reverse()
     if val.completed > 0
       li.completed-actions
         .task-info
           span= val.task
-          form(method='POST' action='/delete')
-            input(type='hidden', name='id', value=val.id)
-            button.delete-btn(type='submit') &#10006;
-        .task-actions
           form(method='POST' action='/undo')
             input(type='hidden', name='id', value=val.id)
             input(type='hidden', name='task', value=val.task)
             button.undo-btn(type='submit') &#8635;
-          
+          form(method='POST' action='/delete')
+            input(type='hidden', name='id', value=val.id)
+            button.delete-btn(type='submit') &#10006;
+        .task-actions
+  
+  script.
+    function showEdit(btn) {
+      btn.style.display = 'none';
+      const form = btn.parentElement.querySelector('.edit-form');
+      form.classList.remove('hidden');
+      form.querySelector('input[type="text"]').focus();
+    }
           

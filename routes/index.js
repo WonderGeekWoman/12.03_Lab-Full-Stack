@@ -9,7 +9,7 @@ router.get('/', function(req, res, next){
         console.error('Error fetching todos:', err);
         return res.status(500).send('Error fetching todos');
       }
-      res.render('index', { title: 'Your ToDo List', todos: results });
+      res.render('index', { title: 'To-Do List', todos: results });
     });
   } catch (error) {
     console.error('Error fetching items:', error);

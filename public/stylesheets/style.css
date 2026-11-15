@@ -1,38 +1,51 @@
-body {
-  padding: 50px;
-  font: 16px 'Trebuchet MS', Helvetica, Arial, sans-serif;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("/images/vintage-blue-textured-paper-background.jpg");
+html {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)),
+    url("/images/vintage-blue-textured-paper-background.jpg");
   background-repeat: no-repeat;
   background-position: cover;
   background-size: cover;
   background-attachment: fixed;
+}
+
+body {
+  padding: 50px;
+  font-family: Helvetica, 'Trebuchet MS', Arial, sans-serif;
+  box-sizing: border-box;
   max-width: 800px;
-  min-width: 700px;
+  min-width: 600px;
+  margin: 0 auto;
 }
 
 #todo-box {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: stretch;
   width: 100%;
-  max-width: 750px;
-  min-width: 600;
-  box-sizing: border-box;
+  max-width: 800px;
+  min-width: 600px;
   margin: 0 auto;
 }
 
 h1 {
   text-align: center;
-  font: 40px Helvetica, 'Trebuchet MS', Arial, sans-serif;
+  font: 90px 'Cinzel', Georgia, serif;
+  margin-top: 10px;
+  margin-bottom: 5px;
 }
 
 h2 {
-  font: 20px Helvetica, Arial, 'Trebuchet MS', sans-serif;
+  text-align: center;
+  font: 25px Helvetica, 'Trebuchet MS', Arial, sans-serif;
+}
+
+h3 {
+  font: bold 20px;
 }
 
 li {
   display: flex;
   align-items: center;
+  font: 16px 'Trebuchet MS', Helvetica, Arial, sans-serif;
   justify-content: space-between;
   gap: 24px;
   margin-bottom: 4px;
@@ -41,7 +54,7 @@ li {
 .task-info {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 16px;
   white-space: nowrap;
 }
 
@@ -51,13 +64,26 @@ li {
   gap: 6px;
 }
 
-label {
-  white-space: nowrap;
+form {
+  display: inline-flex;
+  gap: 8px;
 }
 
 button {
   white-space: nowrap;
-  color: aquamarine;
+  font: 16px;
+  font-family: inherit;
+  font-weight: bold;
+  color: #1e3a5f;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid #94a3b8;
+  border-radius: 4px;
+  padding: 3px 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgb(146, 177, 219);
 }
 
 .completed-heading {
@@ -67,6 +93,12 @@ button {
 .completed-actions {
   justify-content: flex-start;
   gap: 20px;
+}
+
+input[type="text"] {
+  padding: 6px 5 px;
+  border-radius: 4px;
+  font-size: 14px;
 }
 
 .complete-btn {
@@ -81,7 +113,8 @@ button {
 }
 
 .complete-btn:hover{
-  transition: scale(1.25);
+  background: none;
+  transform: scale(1.25);
   color:rgb(47, 245, 21);
 }
 
@@ -97,7 +130,8 @@ button {
 }
 
 .delete-btn:hover {
-  transition: scale(1.25);
+  background: none;
+  transform: scale(1.25);
   color:rgb(247, 14, 14);
 
 }
@@ -114,6 +148,11 @@ button {
 }
 
 .undo-btn:hover {
-  transition: scale(1.25);
-  color:rgb(137, 118, 243);
+  background: none;
+  transform: scale(1.25);
+  color:rgb(250, 163, 49);
+}
+
+.hidden {
+  display: none !important;
 }

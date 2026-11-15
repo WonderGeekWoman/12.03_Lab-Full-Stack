@@ -6,11 +6,12 @@
 
 ## Project Description
 
-This is my full-stack application for CS208, built with node.js. I built a web
-application for a small donut shop that allows users to view and order donuts
-online. The application uses Express for the backend and MariaDB (MySQL) for the
-database. Please read the following instructions carefully because some of the
-setup only needs to be done once.
+This is my full-stack ToDo List for Lab 12 in CS208 built with
+Node.js, Express, Pug, and MariaDB(MySql). I edited a given
+template to create the required functionality and. The application
+uses Express for the backend and MariaDB (MySQL) for the database.
+* Please read the following instructions carefully because
+some of the setup only needs to be done once.
 
 ## Install the Database
 
@@ -29,6 +30,7 @@ Create the initial tables by running the following command:
 ```bash
 sudo mysql -u root -p < ./setup_scripts/create_demo_table.sql
 ```
+
 
 ## Install Dependencies
 

@@ -29,7 +29,7 @@ with X icon button.
 
 To set up the database, run the `install_db.sh` script in the setup_scripts
 directory. This script will install MariaDB and start the server running.
-You only need to run this script once per Codespace.
+You only need to run this script once per Codespace. If you are experiencing problems, please refer to the troubleshooting section before requesting assistance or rerunning the setup scripts.
 
 ```bash
 ./setup_scripts/install_db.sh

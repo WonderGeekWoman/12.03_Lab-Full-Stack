@@ -5,11 +5,13 @@ block content
   h1= title
   h2 Keep track of your tasks!
 
+  //Create new ToDo task
   hr
   form(method='POST' action='/create')
     input(type='text', name='task', id='task', onchange="this.value = this.value.trim()", required, autofocus)
     button(type='submit') Create Task
 
+  //ToDo task list with options to edit, mark complete or delete
   h3 Tasks to be done
   ol
   each val in todos
@@ -30,7 +32,7 @@ block content
             input(type='text', name='task', value=val.task, required)
             button(type='submit') Save
           
-
+  //Completed task list with options to restore or delete
   h3.completed-heading Completed Tasks
   ol
   each val in todos.slice().reverse()
@@ -47,6 +49,7 @@ block content
             button.delete-btn(type='submit') &#10006;
         .task-actions
   
+  //Exchange Edit button with edit form
   script.
     function showEdit(btn) {
       btn.style.display = 'none';

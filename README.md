@@ -75,6 +75,17 @@ npm start
 On Codespaces, you can access the application by forwarding port 3000.
 Open the forwarded port in your browser to view the application.
 
+## HELP! I have tried everything and it still doesn't work!
+If you have tried everything and it still doesn't work you may have accidentally changed something. It is very difficult to troubleshoot issues without knowing what you have changed. The only option is to delete your Codespace and create a new one. This will reset everything to the original state. You can do this by clicking on the "Delete Codespace" button in the Codespaces dashboard.
+
+Follow these steps to delete your Codespace:
+
+Make sure you have committed all your changes and pushed them to GitHub.
+Go to the Codespaces dashboard. Delete Codespace
+Find your Codespace in the list and click on the "Delete" button next to it.
+Confirm the deletion.
+Create a new Codespace from the same repository and try again!
+
 ## AI Usage Disclosure
 
 I used an AI assistant (Google Gemini) during development to help troubleshoot Pug indentation, refine CSS Flexbox layouts and hover states, and verify Express/SQL query syntax for the update, complete, and undo features as I instructed. All code was implemented, tested, and verified by me.

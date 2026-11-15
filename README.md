@@ -8,21 +8,22 @@
 
 This is my full-stack ToDo List for Lab 12 in CS208 built with Node.js,
 Express, Pug, and MariaDB (MySql). I edited a given template to create
-the required functionality, add my own functionality and my own style.
-The application uses Express for the backend and MariaDB (MySQL) for the
-database.
+the required functionality, add my own functionality, and create my own
+style. The application uses Express for the backend and MariaDB (MySQL)
+for the database.
 * Please read the following instructions carefully because
 some of the setup only needs to be done once.
 
 ## Features
 * **Create tasks:** Add new tasks to the Task List with automatic input
 focus and validation to prevent blank or space-only entries.
-* **Edit tasks:** Click the Edit button for a text box and a Save button
-to edit an existing task.
+* **Edit tasks:** Click the Edit button next to an existing task for a text
+box and Save button to edit that task.
 * **Complete/Undo Complete:** Move finished tasks to the Completed list with
-the checkmark button or move them back to the unfinished task list with
-the redo button.
-* **Delete tasks:** Permanently remove tasks from either list with X button.
+the checkmark icon button or move them back to the unfinished task list with
+the redo icon button.
+* **Delete tasks:** Permanently remove tasks individually from either list
+with X icon button.
 
 ## Install the Database
 

@@ -1,8 +1,8 @@
 # CS208 12.03 Lab - Full Stack
 
-- Name: Amanda Halverson
-- GitHub: [https://github.com/WonderGeekWoman/12.03_Lab-Full-Stack](https://github.com/WonderGeekWoman/12.03_Lab-Full-Stack)
-- Term: Fall 2026
+- **Name:** Amanda Halverson
+- **GitHub:** [https://github.com/WonderGeekWoman/12.03_Lab-Full-Stack](https://github.com/WonderGeekWoman/12.03_Lab-Full-Stack)
+- **Term:** Fall 2026
 
 ## Project Description
 

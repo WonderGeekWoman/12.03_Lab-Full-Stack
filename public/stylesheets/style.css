@@ -1,25 +1,48 @@
 body {
   padding: 50px;
-  font: 14px Lucinda, Helvetica, Arial, sans-serif;
+  font: 16px 'Trebuchet MS', Helvetica, Arial, sans-serif;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("/images/vintage-blue-textured-paper-background.jpg");
+  background-repeat: no-repeat;
+  background-position: cover;
+  background-size: cover;
+  background-attachment: fixed;
+  max-width: 800px;
+  min-width: 700px;
+}
+
+#todo-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 750px;
+  min-width: 600;
+  box-sizing: border-box;
+  margin: 0 auto;
 }
 
 h1 {
-  font: 16px Arial, 
+  text-align: center;
+  font: 40px Helvetica, 'Trebuchet MS', Arial, sans-serif;
 }
 
 h2 {
-  font: 
-}
-
-a {
-  color: #00B7FF;
+  font: 20px Helvetica, Arial, 'Trebuchet MS', sans-serif;
 }
 
 li {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 24px;
   margin-bottom: 4px;
+}
+
+.task-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
 }
 
 .task-actions {
@@ -28,6 +51,69 @@ li {
   gap: 6px;
 }
 
-p {
+label {
+  white-space: nowrap;
+}
 
+button {
+  white-space: nowrap;
+  color: aquamarine;
+}
+
+.completed-heading {
+  margin-top: 60px;
+}
+
+.completed-actions {
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.complete-btn {
+  display: inline-block;
+  background: none;
+  border: none;
+  padding: 0;
+  color:rgb(99, 99, 99);
+  font-size: 14pt;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.complete-btn:hover{
+  transition: scale(1.25);
+  color:rgb(47, 245, 21);
+}
+
+.delete-btn {
+  display: inline-block;
+  background: none;
+  border: none;
+  padding: 0;
+  color:rgb(99, 99, 99);
+  font-size: 14pt;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.delete-btn:hover {
+  transition: scale(1.25);
+  color:rgb(247, 14, 14);
+
+}
+
+.undo-btn {
+  display: inline-block;
+  background: none;
+  border: none;
+  padding: 0;
+  color:rgb(99, 99, 99);
+  font-size: 14pt;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.undo-btn:hover {
+  transition: scale(1.25);
+  color:rgb(137, 118, 243);
 }

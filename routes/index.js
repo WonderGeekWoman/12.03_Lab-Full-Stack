@@ -4,7 +4,7 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', function(req, res, next){
   try {
-    req.db.query('SELECT * FROM todos;', (err, results) => {
+    req.db.query('SELECT * FROM todos ORDER BY id ASC;', (err, results) => {
       if (err) {
         console.error('Error fetching todos:', err);
         return res.status(500).send('Error fetching todos');
@@ -82,16 +82,18 @@ router.post('/complete', function (req, res, next) {
 
 /* undo complete task */
 router.post('/undo', function (req, res, next) {
-    const { id } = req.body;
+    const { id, task } = req.body;
     try {
-      req.db.query('UPDATE todos SET completed = 0 WHERE id = ?;', [id], (err, results) => {
+      req.db.query('INSERT INTO todos (task) VALUES (?);', [task.trim()], (err, results) => {
         if (err) {
           console.error('Error uncompleting todo:', err);
           return res.status(500).send('Error uncompleting todo');
         }
+        req.db.query('DELETE FROM todos WHERE id = ?;', [id], (err, results) => {
+          // Redirect to the home page after update
+          res.redirect('/');
+        });
         console.log('Todo uncompleted successfully:', results);
-        // Redirect to the home page after update
-        res.redirect('/');
       });
     } catch (error) {
       console.error('Error uncompleting todo:', error);

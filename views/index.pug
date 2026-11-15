@@ -1,13 +1,14 @@
 extends layout
 
 block content
+  #todo-box
   h1= title
   h2 Keep track of the tasks you need to complete!
 
   hr
   p Add a new task
   form(method='POST' action='/create')
-    input(type='text', name='task', id='task', onchange="this.value = this.value.trim()", required)
+    input(type='text', name='task', id='task', onchange="this.value = this.value.trim()", required, autofocus)
     button(type='submit') Create Task
 
   h2 Tasks
@@ -17,30 +18,33 @@ block content
       li
         .task-info
           span= val.task
-        .task-actions
-          form(method='POST' action='/update')
-            label Edit:
-            input(type='hidden', name='id', value=val.id)
-            input(type='text', name='task', value=val.task, required)
-            button(type='submit') Update Task
           form(method='POST' action='/complete')
             input(type='hidden', name='id', value=val.id)
-            button(type='submit') Completed
+            button.complete-btn(type='submit') &#10004;
           form(method='POST' action='/delete')
             input(type='hidden', name='id', value=val.id)
-            button(type='submit') Delete
+            button.delete-btn(type='submit') &#10006;
+        .task-actions
+          form(method='POST' action='/update')
+            input(type='hidden', name='id', value=val.id)
+            input(type='text', name='task', value=val.task, required)
+            button(type='submit') Edit
+          
 
-  h2 Completed
+  h2.completed-heading Completed
   ol
-  each val in todos
+  each val in todos.slice().reverse()
     if val.completed > 0
-      li
+      li.completed-actions
         .task-info
           span= val.task
+          form(method='POST' action='/delete')
+            input(type='hidden', name='id', value=val.id)
+            button.delete-btn(type='submit') &#10006;
         .task-actions
           form(method='POST' action='/undo')
             input(type='hidden', name='id', value=val.id)
-            button(type='submit') Undo
-          form(method='POST' action='/delete')
-            input(type='hidden', name='id', value=val.id)
-            button(type='submit') Delete
+            input(type='hidden', name='task', value=val.task)
+            button.undo-btn(type='submit') &#8635;
+          
+          

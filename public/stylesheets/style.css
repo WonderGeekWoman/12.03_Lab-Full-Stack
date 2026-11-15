@@ -1,8 +1,33 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px Lucinda, Helvetica, Arial, sans-serif;
+}
+
+h1 {
+  font: 16px Arial, 
+}
+
+h2 {
+  font: 
 }
 
 a {
   color: #00B7FF;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.task-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+p {
+
 }

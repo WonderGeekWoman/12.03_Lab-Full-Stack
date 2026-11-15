@@ -9,7 +9,7 @@ router.get('/', function(req, res, next){
         console.error('Error fetching todos:', err);
         return res.status(500).send('Error fetching todos');
       }
-      res.render('index', { title: 'My Simple TODO', todos: results });
+      res.render('index', { title: 'Your ToDo List', todos: results });
     });
   } catch (error) {
     console.error('Error fetching items:', error);
@@ -77,6 +77,25 @@ router.post('/complete', function (req, res, next) {
     } catch (error) {
       console.error('Error completing todo:', error);
         res.status(500).send('Error completing todo:');
+    }
+});
+
+/* undo complete task */
+router.post('/undo', function (req, res, next) {
+    const { id } = req.body;
+    try {
+      req.db.query('UPDATE todos SET completed = 0 WHERE id = ?;', [id], (err, results) => {
+        if (err) {
+          console.error('Error uncompleting todo:', err);
+          return res.status(500).send('Error uncompleting todo');
+        }
+        console.log('Todo uncompleted successfully:', results);
+        // Redirect to the home page after update
+        res.redirect('/');
+      });
+    } catch (error) {
+      console.error('Error uncompleting todo:', error);
+        res.status(500).send('Error uncompleting todo:');
     }
 });
 

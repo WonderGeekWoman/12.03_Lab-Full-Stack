@@ -2,29 +2,45 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
-  ol
-  each val in todos
-    li
-      span= val.task + ' - '
-      if val.completed > 0
-        span Completed
-      else
-        span Not Completed
-      form(method='POST' action='/update')
-        input(type='hidden', name='id', value=val.id)
-        input(type='text', name='task', value=val.task, required)
-        button(type='submit') Update
-      form(method='POST' action='/complete')
-        input(type='hidden', name='id', value=val.id)
-        button(type='submit') Complete
-      form(method='POST' action='/delete')
-        input(type='hidden', name='id', value=val.id)
-        button(type='submit') Delete
+  h2 Keep track of the tasks you need to complete!
 
   hr
-  h2 Add a new task
+  p Add a new task
   form(method='POST' action='/create')
-    label(for='task') Task:
-    input(type='text', name='task', id='task', required)
+    input(type='text', name='task', id='task', onchange="this.value = this.value.trim()", required)
     button(type='submit') Create Task
+
+  h2 Tasks
+  ol
+  each val in todos
+    if val.completed == 0
+      li
+        .task-info
+          span= val.task
+        .task-actions
+          form(method='POST' action='/update')
+            label Edit:
+            input(type='hidden', name='id', value=val.id)
+            input(type='text', name='task', value=val.task, required)
+            button(type='submit') Update Task
+          form(method='POST' action='/complete')
+            input(type='hidden', name='id', value=val.id)
+            button(type='submit') Completed
+          form(method='POST' action='/delete')
+            input(type='hidden', name='id', value=val.id)
+            button(type='submit') Delete
+
+  h2 Completed
+  ol
+  each val in todos
+    if val.completed > 0
+      li
+        .task-info
+          span= val.task
+        .task-actions
+          form(method='POST' action='/undo')
+            input(type='hidden', name='id', value=val.id)
+            button(type='submit') Undo
+          form(method='POST' action='/delete')
+            input(type='hidden', name='id', value=val.id)
+            button(type='submit') Delete

@@ -11,7 +11,8 @@ body {
   padding: 50px;
   font-family: Helvetica, 'Trebuchet MS', Arial, sans-serif;
   box-sizing: border-box;
-  max-width: 800px;
+  width: 100%;
+  max-width: 750px;
   min-width: 600px;
   margin: 0 auto;
 }
@@ -20,10 +21,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  width: 100%;
-  max-width: 800px;
-  min-width: 600px;
-  margin: 0 auto;
 }
 
 h1 {
@@ -39,7 +36,7 @@ h2 {
 }
 
 h3 {
-  font: bold 20px;
+  font-size-adjust: bold 20px;
 }
 
 li {
@@ -48,20 +45,24 @@ li {
   font: 16px 'Trebuchet MS', Helvetica, Arial, sans-serif;
   justify-content: space-between;
   gap: 24px;
-  margin-bottom: 4px;
+  line-height: 26px;
+  margin-bottom: 6px;
 }
 
 .task-info {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  white-space: nowrap;
+  display: block;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.task-info span {
+  margin-right: 6px;
 }
 
 .task-actions {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
 }
 
 form {
@@ -71,7 +72,7 @@ form {
 
 button {
   white-space: nowrap;
-  font: 16px;
+  font-size: 14px;
   font-family: inherit;
   font-weight: bold;
   color: #1e3a5f;
@@ -96,12 +97,12 @@ button:hover {
 }
 
 input[type="text"] {
-  padding: 6px 5 px;
+  padding: 4px 5px;
   border-radius: 4px;
   font-size: 14px;
 }
 
-.complete-btn {
+.complete-btn, .delete-btn, .undo-btn {
   display: inline-block;
   background: none;
   border: none;
@@ -110,46 +111,23 @@ input[type="text"] {
   font-size: 14pt;
   font-weight: bold;
   cursor: pointer;
+  margin-left: 20px;
 }
 
-.complete-btn:hover{
+.complete-btn:hover,.delete-btn:hover,.undo-btn:hover{
   background: none;
   transform: scale(1.25);
+}
+
+.complete-btn:hover {
   color:rgb(47, 245, 21);
 }
 
-.delete-btn {
-  display: inline-block;
-  background: none;
-  border: none;
-  padding: 0;
-  color:rgb(99, 99, 99);
-  font-size: 14pt;
-  cursor: pointer;
-  margin-left: 10px;
-}
-
 .delete-btn:hover {
-  background: none;
-  transform: scale(1.25);
   color:rgb(247, 14, 14);
-
-}
-
-.undo-btn {
-  display: inline-block;
-  background: none;
-  border: none;
-  padding: 0;
-  color:rgb(99, 99, 99);
-  font-size: 14pt;
-  font-weight: bold;
-  cursor: pointer;
 }
 
 .undo-btn:hover {
-  background: none;
-  transform: scale(1.25);
   color:rgb(250, 163, 49);
 }
 

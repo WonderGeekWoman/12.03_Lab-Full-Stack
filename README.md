@@ -37,9 +37,10 @@ You only need to run this script once per Codespace. If you are experiencing pro
 
 Use the following for questions that the script asks:
 
+* Enter current password for root (enter for none): Enter
 * Switch to unix_socket authentication [Y/n] n
 * Change the root password? [Y/n] Y
-* Set the password to 12345
+* Set the password to 12345 (it doesn't show what you type) repeat
 * Remove anonymous users? [Y/n] Y
 * Disallow root login remotely? [Y/n] Y
 * Remove test database and access to it? [Y/n] Y
@@ -47,7 +48,7 @@ Use the following for questions that the script asks:
 
 ## Create the Database Tables
 
-Create the initial tables by running the following command:
+Create the initial tables by running the following command and entering the password:
 
 ```bash
 sudo mysql -u root -p < ./setup_scripts/create_demo_table.sql
@@ -72,8 +73,9 @@ npm start
 
 ## Access the Application
 
-On Codespaces, you can access the application by forwarding port 3000.
-Open the forwarded port in your browser to view the application.
+On Codespaces, if the blue button to open in the browser doesn't pop up, you can
+access the application by forwarding port 3000. Open the forwarded port in your
+browser to view the application.
 
 ## HELP! I have tried everything and it still doesn't work!
 If you have tried everything and it still doesn't work you may have accidentally changed something. It is very difficult to troubleshoot issues without knowing what you have changed. The only option is to delete your Codespace and create a new one. This will reset everything to the original state. You can do this by clicking on the "Delete Codespace" button in the Codespaces dashboard.
